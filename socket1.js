@@ -19,11 +19,11 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
   socket.on('chat message', function(sms){
-   io.emit('chat message', sms);
-   //socket.broadcast.emit(sms);
+  // io.emit('chat message', sms);
+   //socket.broadcast.emit(sms);//
   //io.sockets.emit('socket', sms);//sending //....
  // io.sockets.emit('chat message', sms); //
- // socket.broadcast.emit('chat message', sms);//Sending to ALL except Me 
+  socket.broadcast.emit('chat message', sms);//Sending to ALL except Me 
   });
 });
     
